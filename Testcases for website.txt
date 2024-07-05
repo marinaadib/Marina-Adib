@@ -1,0 +1,137 @@
+#Summary of Test Plan
+- Valid users: Check that all valid usernames written on main website page can login successfully
+Also check main functionality for each user, for example for locked user: check that the user was locked and didn't log in
+- Invalid users: Check that if an invalid username/password is used, login is not successful
+
+#Test case 1: Standard User
+1. Create an object of WebDriver
+2. Go to website
+3. Get username for Standard User from website
+4. Get password from website
+5. Enter username and password, click on login
+6. Get current URL to make sure user is successfully logged in
+7. Logout
+8. Close driver
+
+#Test case 2: Locked User
+1. Create an object of WebDriver
+2. Go to website
+3. Get username for Locked User from website
+4. Get password from website
+5. Enter username and password, click on login
+6. Verify error message appeared and contains the word "locked"
+7. Get current URL to make sure user is not logged in
+8. Close driver
+
+#Test case 3: Problem User
+1. Create an object of WebDriver
+2. Go to website
+3. Get username for Problem User from website
+4. Get password from website
+5. Enter username and password, click on login
+6. Get current URL to make sure user is successfully logged in
+7. Get name and price of first item on page
+8. Click on Item
+9. Get name and price again from Item page
+10. Compare values from steps 7 and 9
+11. Logout
+12. Close driver
+
+#Test case 4: Performance Glitch User
+1. Create an object of WebDriver
+2. Go to website
+3. Get username for Performance Glitch User from website
+4. Get password from website
+5. Enter username and password, click on login
+6. Wait for only accepted login time
+7. Get current URL to make sure user is successfully logged in
+8. Logout
+9. Wait for only accepted logout time
+10. Get current URL to make sure user is successfully logged out
+11. Repeat steps from 5 to 10 for "NoOfTrials" time
+12. Close driver
+
+#Test case 5: Error User
+1. Create an object of WebDriver
+2. Go to website
+3. Get username for Error User from website
+4. Get password from website
+5. Enter username and password, click on login
+6. Get current URL to make sure user is successfully logged in
+7. For all items on page: Click on "Add To Cart"
+8. Check text changed for all items to "Remove"
+9. Logout
+10. Close driver
+
+#Test case 6: Visual User
+1. Create an object of WebDriver
+2. Go to website
+3. Get username for Visual User from website
+4. Get password from website
+5. Enter username and password, click on login
+6. Get current URL to make sure user is successfully logged in
+7. For first item on page, get price
+8. Click on first item on page
+9. Get item price from item page
+10. Compare prices from steps 7 and 9
+11. Click on "Back to Products" button
+12. Get item price again from main page
+13. Compare price from step 12, to prices from steps 7 and 9
+14. Logout
+15. Close driver
+
+#Test case 7: Invalid Logins (using TestNG)
+## SubTest1: Invalid Username Valid Password
+1. Create an object of WebDriver
+2. Go to website
+3. Set username to any invalid value
+4. Get password from website
+5. Enter username and password, click on login
+6. Print Error Message
+7. Get current URL to make sure user is not logged in
+8. Close driver
+## SubTest2: Valid Username Invalid Password
+1. Create an object of WebDriver
+2. Go to website
+3. Set username to valid value
+4. Set password to any invalid value
+5. Enter username and password, click on login
+6. Print Error Message
+7. Get current URL to make sure user is not logged in
+8. Close driver
+## SubTest3: Empty Username Valid Password
+1. Create an object of WebDriver
+2. Go to website
+3. Set username to Empty String
+4. Get password from website
+5. Enter username and password, click on login
+6. Print Error Message
+7. Get current URL to make sure user is not logged in
+8. Close driver
+## SubTest4: Valid Username Empty Password
+1. Create an object of WebDriver
+2. Go to website
+3. Set username to valid value
+4. Set password to Empty String
+5. Enter username and password, click on login
+6. Print Error Message
+7. Get current URL to make sure user is not logged in
+8. Close driver
+## SubTest5: Password Equals Valid Username
+1. Create an object of WebDriver
+2. Go to website
+3. Set username to valid value
+4. Set password to same value of username
+5. Enter username and password, click on login
+6. Print Error Message
+7. Get current URL to make sure user is not logged in
+8. Close driver
+## SubTest6: Username Equals Valid Password
+1. Create an object of WebDriver
+2. Go to website
+3. Get password from website
+4. Set username to same value of password
+5. Enter username and password, click on login
+6. Print Error Message
+7. Get current URL to make sure user is not logged in
+8. Close driver
